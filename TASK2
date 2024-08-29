@@ -1,0 +1,56 @@
+class Student:
+    def __init__(self, name):
+        self.name = name
+        self.grades = {}
+
+    def add_grade(self, subject, grade):
+        self.grades[subject] = grade
+
+    def calculate_average(self):
+        if not self.grades:
+            return 0
+        total_sum = sum(self.grades.values())
+        total_count = len(self.grades)
+        return total_sum / total_count
+
+    def display_info(self):
+        print(f"\nStudent Name: {self.name}")
+        print("Grades by Subject:")
+        for subject, grade in self.grades.items():
+            print(f"{subject}: {grade}")
+        
+        overall_average = self.calculate_average()
+        print(f"\nOverall Average Grade: {overall_average:.2f}")
+
+        # Determine overall letter grade
+        if overall_average >= 90:
+            print("Overall Grade: A")
+        elif overall_average >= 80:
+            print("Overall Grade: B")
+        elif overall_average >= 70:
+            print("Overall Grade: C")
+        elif overall_average >= 60:
+            print("Overall Grade: D")
+        else:
+            print("Overall Grade: F")
+
+# Main program to take input from user
+def main():
+    student_name = input("Enter the student's name: ")
+    student = Student(student_name)
+    
+    while True:
+        subject = input("Enter the subject name (or 'done' to finish): ")
+        if subject.lower() == 'done':
+            break
+        try:
+            grade = float(input(f"Enter the grade for {subject}: "))
+            student.add_grade(subject, grade)
+        except ValueError:
+            print("Invalid grade. Please enter a number.")
+    
+    student.display_info()
+
+# Run the main program
+if __name__ == "__main__":
+    main()
