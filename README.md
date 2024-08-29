@@ -13,11 +13,12 @@ DURATION: Aug TO September 2024
 MENTOR: SANTHOSH KUMAR
 
 # OVERVIW OF PROJECT
-* Student Class:
-> Purpose:
+The code defines a Student class to manage a student's grades and calculate their average. It prompts the user to input the student's name, subjects, and grades, and then displays the student's grades along with the average and overall letter grade. The program continues taking input until the user finishes by typing "done."
 
+* Student Class:
 The Student class is designed to store and manage a student's grades.
-Attributes:
+
+# Attributes:
 
 * name: Stores the student's name.
   
